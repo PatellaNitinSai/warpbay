@@ -6,7 +6,7 @@ import {
   getEventById,
   registerAttendee,
   getAttendees
-} from '../controllers/eventController.js';
+} from '../Controllers/eventController.js';
 
 const router = express.Router();
 
