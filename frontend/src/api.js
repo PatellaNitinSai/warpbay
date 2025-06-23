@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://warpbay-bacekend.onrender.com',
+  baseURL: 'https://warpbay-backend.onrender.com/api',
 });
 
 // 1️⃣ Request interceptor to automatically attach JWT
