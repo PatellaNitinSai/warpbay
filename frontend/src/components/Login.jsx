@@ -14,7 +14,8 @@ export default function Login() {
     try {
       const { data } = await API.post('/auth/login', { username, password });
       localStorage.setItem('token', data.token);
-      nav('/events/new');    // go straight into Create Event form
+    window.location.href = '/#/events/new';
+    // go straight into Create Event form
     } catch (err) {
       setError(err.response?.data?.msg || 'Login failed');
     }
