@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+// src/App.js
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import EventList from './components/EventList';
@@ -9,23 +10,23 @@ function App() {
   const token = localStorage.getItem('token');
 
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        {/* Default: if logged in → create form; else → register */}
+        {/* Root: redirect based on auth */}
         <Route
           path="/"
           element={
             token
-              ? <Navigate to="#/events/new" replace />
+              ? <Navigate to="/events/new" replace />
               : <Navigate to="/register" replace />
           }
         />
 
-        {/* Auth */}
-        <Route path="/login" element={<Login />} />
+        {/* Un‑authenticated routes */}
+        <Route path="/login"    element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* After auth */}
+        {/* Auth‑protected */}
         <Route
           path="/events"
           element={token ? <EventList /> : <Navigate to="/login" replace />}
@@ -39,10 +40,10 @@ function App() {
           element={token ? <EventDetails /> : <Navigate to="/login" replace />}
         />
 
-        {/* Fallback */}
+        {/* Catch‑all */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
