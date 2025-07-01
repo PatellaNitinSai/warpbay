@@ -27,7 +27,7 @@ function App() {
 
         {/* After auth */}
         <Route
-          path="#/events"
+          path="/events"
           element={token ? <EventList /> : <Navigate to="/login" replace />}
         />
         <Route
