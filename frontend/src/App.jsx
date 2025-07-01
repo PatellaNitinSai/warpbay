@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import EventList from './components/EventList';
@@ -9,7 +9,7 @@ function App() {
   const token = localStorage.getItem('token');
 
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         {/* Default: if logged in → create form; else → register */}
         <Route
@@ -42,7 +42,7 @@ function App() {
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
