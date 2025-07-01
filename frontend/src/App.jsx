@@ -31,11 +31,11 @@ function App() {
           element={token ? <EventList /> : <Navigate to="/login" replace />}
         />
         <Route
-          path="#/events/new"
+          path="/events/new"
           element={token ? <EventForm /> : <Navigate to="/login" replace />}
         />
         <Route
-          path="#/events/:id"
+          path="/events/:id"
           element={token ? <EventDetails /> : <Navigate to="/login" replace />}
         />
 
